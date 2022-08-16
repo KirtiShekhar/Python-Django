@@ -1,0 +1,38 @@
+{% extends 'pizzaDeliveryBase.html' %}
+
+{% block content %}
+
+<nav class="navbar navbar-light bg-light">
+<a class="navbar-brand">Welcome Admin</a>
+    <a href="/adminlogout/" class="btn btn-danger">logout</a>
+</nav>
+
+<form method="post" action="/addPizzas/">
+	{% csrf_token %}
+    <div class="container" style="width: 530px;display: block;margin: auto">
+        <input type="text" placeholder="pizza name" class="form-control" name="pizzaName" style="width: 200px;display: inline;margin: auto">
+		<input type="text" class="form-control" placeholder="pizza price" name="pizzaPrice" style="width: 200px;display: inline;margin: auto">
+	<input style="display: inline" type="submit" value="add Pizza" name="" class="btn btn-success">
+	</div>
+</form>
+
+<div class="container" style="width: 50%;display: block;margin: auto;margin-top: 80px">
+	<table style="width: 50%">
+	<tr>
+		<th>Pizza Name</th>
+		<th>Pizza Price</th>
+		<th>Delete The Pizza</th>
+		<th>Edit The Pizza</th>
+	</tr>
+	{% for pizza in pizzas %}
+	<tr>
+		<td>{{pizza.pizzaName}}</td>
+		<td>{{pizza.pizzaPrice}}</td>
+		<td><a href="/deletePizzas/{{pizza.id}}/" class="btn btn-danger">Delete</a></td>
+		<td><a href="" class="btn btn-warning">Edit</a></td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+
+{% endblock %}

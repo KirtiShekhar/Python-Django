@@ -1,0 +1,17 @@
+{% extends 'pizzaDeliveryBase.html' %}
+{% block content %}
+<h1 style="text-align: center">Customer Ordered Items</h1>
+{% for order in PizzasOrdered %}
+<div style="margin: 40px" class="alert alert-warning" role = "alert">
+	<p style="text-align: center;">{{order.customerUsername}}</p>
+	<p style="text-align: center;">{{order.customerContactNumber}}</p>
+	<p style="text-align: center;">{{order.customerAddress}}</p>
+	<p style="text-align: center;">{{order.PizzasOrderedItems}}</p>
+	<p style="text-align: center;">order status : {{order.customerStatus}}</p>
+	<div class="container" style="width: 200px;margin: auto">
+		<a href="/acceptpizzasorder/{{order.id}}/" style="display: inline;" class="btn btn-success">accept pizza order</a>
+	<a href="/declinedpizzasorder/{{order.id}}/" style="display: inline" class="btn btn-danger">decline pizza order</a>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

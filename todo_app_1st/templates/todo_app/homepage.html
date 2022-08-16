@@ -1,0 +1,20 @@
+{% extends 'todoapp_base.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center"> To Do Task Crud Project </h1>
+<form method="post" action="/addtask/">
+    {% csrf_token %}
+    <input type="text" name="task">
+    <input type="submit" value="add the task" class="btn btn-success" placeholder="type the task to add">
+</form></br></br>
+
+{% for myaddedtodotask in myaddedtodotask %}
+
+<p>  task : {{myaddedtodotask.todotask}}
+    &nbsp;&nbsp;&nbsp;<a href="/deletetask/{{myaddedtodotask.id}}/" class="btn btn-danger">delete the task</a>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<a href="/updatetask/{{myaddedtodotask.id}}/" class="btn btn-warning">edit the task</a></p>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+	{% extends 'pizzaDeliveryBase.html' %}
+
+	{% load static %}
+	{% block content %}
+	<nav class="navbar navbar-light bg-light">
+	  <h1 class="navbar-brand">Welcome Pizza Application</h1>
+
+		<div class="container-fluid" style="position: relative;height: 900px;background-size: cover;background-image: url({%static "image/pizzahomepage.jpg" %});">
+
+		<div style="position: absolute;top: 50px;right: 20px;width: 500px;height: 200px;background-color: orange;padding: 40px" class="container">
+			<h6>Select your appropriate role:</h6>
+			<a class="btn btn-success" href="/admin/">Admin</a>
+			<br/><br/>
+			<a class="btn btn-success" href="/customer/home/">Customer</a>
+
+		</div>
+		</div>
+	</nav>
+	{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'counternumbase.html' %}
+
+{% block content %}
+
+<h1 style="margin-left: 120 px">{{counterNumber}}</h1>
+<a href="/increment/" class="btn btn-success">increment</a>
+
+<!--<h1 style="margin-left: 120 px">0</h1>-->
+<a href="/reset/" class="btn btn-warning">reset</a>
+
+<!--<h1 style="margin-left: 120 px">0</h1>-->
+<a href="/decrement/" class="btn btn-danger">decrement</a>
+
+{% endblock %}

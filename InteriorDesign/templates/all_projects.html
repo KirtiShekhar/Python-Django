@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} <br><br><br><br><br>
+
+<div class="container-fluid">
+  <p>Here you can search trough our projects</p>
+<form method="get">
+<h3>{{ filtered.form }}</h3>
+<button class="btn btn-secondary" type="submit">Search</button>
+
+</form>
+</div> <br><br><br>
+<div class="container-fluid">
+<div class="row">
+
+{% for project in projects %}
+<div class="col-md-3">
+<div class="card">
+  <img class="card-img-top" src="{{ project.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <a href="{{ get_absolute_url }}"><h5 class="card-title">{{ project.title }}</h5></a>
+    <p class="card-text">{{ project.description }}</p>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock content %}

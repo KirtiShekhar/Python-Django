@@ -1,0 +1,12 @@
+{% extends 'todoapp_base.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center"> Edit your Task </h1>
+<form method="post" action="/updatetask/{{taskprimarykeyid}}/update/">
+    {% csrf_token %}
+    <input type="text" name="task">
+    <input type="submit" value="update the task" class="btn btn-success">
+</form></br></br>
+
+{% endblock %}
